@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Star, Check, Truck, Shield, Award, Users, ArrowRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Check, Truck, Shield, Award, Users, ArrowRight, X, Home } from 'lucide-react';
 
 export default function EcommerceLandingPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -18,7 +18,7 @@ export default function EcommerceLandingPage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
 
-  const productPrice = 4500; // DA
+  const productPrice = 9900; // DA
   const deliveryPrice = 0;
   const productName = "حقيبة BAGSTER العصرية";
 
@@ -30,10 +30,12 @@ export default function EcommerceLandingPage() {
   };
 
   const productImages = [
-    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=500&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581605409669-fcdf81165afa?w=500&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&h=600&fit=crop'
+    '/images/image1.jpeg',
+    '/images/image2.jpeg',
+    '/images/image3.jpeg',
+    '/images/image4.jpeg',
+    '/images/image5.jpeg',
+    '/images/image6.jpeg',
   ];
 
   const wilayaData = [
@@ -1813,7 +1815,10 @@ export default function EcommerceLandingPage() {
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-gray-800">BAGSTER</div>
+            <div className="flex items-center gap-2">
+              <Home className="w-8 h-8 text-slate-600" />
+              <div className="text-2xl font-bold text-gray-800">الرف الذكي</div>
+            </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-amber-600">
                 <Truck className="w-5 h-5" />
@@ -1841,11 +1846,10 @@ export default function EcommerceLandingPage() {
                   منتج حصري لفترة محدودة
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  حقيبة <span className="text-amber-600">العصر</span>
+                  رف <span className="text-amber-600">الحائط السري</span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  حقيبة ظهر عصرية مصنوعة من أجود المواد، مثالية للعمل والسفر والاستخدام اليومي. 
-                  تصميم أنيق وعملي مع مساحات تخزين متعددة.
+                  رف حائط عائم بتصميم عصري مع خزانة سرية مخفية. مثالي لتنظيم المنزل والمكتب مع توفير مساحة تخزين إضافية بتصميم أنيق وعملي.
                 </p>
               </div>
               
@@ -1875,7 +1879,7 @@ export default function EcommerceLandingPage() {
             <div className="relative">
               <div className="relative aspect-square bg-gradient-to-br from-amber-100 to-orange-200 rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src={productImages[currentImageIndex]}
+                  src={`${productImages[currentImageIndex]}`}
                   alt="Premium Backpack"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
@@ -1919,7 +1923,7 @@ export default function EcommerceLandingPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">لماذا تختار حقيبتنا؟</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">لماذا تختار رفنا الذكي؟</h2>
             <p className="text-gray-600">مزايا لا تجدها في أي مكان آخر</p>
           </div>
           
@@ -1928,24 +1932,24 @@ export default function EcommerceLandingPage() {
               <div className="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">مقاومة للماء</h3>
-              <p className="text-gray-600">حماية كاملة لممتلكاتك من المطر والرطوبة</p>
+              <h3 className="text-xl font-semibold mb-2">تخزين مخفي</h3>
+              <p className="text-gray-600">خزانة سرية مخفية لحفظ الأشياء الثمينة والمهمة بأمان</p>
             </div>
             
             <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">تصميم эргономي</h3>
-              <p className="text-gray-600">راحة قصوى للظهر والأكتاف حتى مع الحمولة الثقيلة</p>
+              <h3 className="text-xl font-semibold mb-2">تصميم عصري</h3>
+              <p className="text-gray-600">يناسب جميع أنواع الديكور المنزلي والمكتبي بأسلوب أنيق</p>
             </div>
             
             <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">جودة عالية</h3>
-              <p className="text-gray-600">مواد فاخرة وتصنيع متين يدوم لسنوات</p>
+              <h3 className="text-xl font-semibold mb-2">تركيب سهل</h3>
+              <p className="text-gray-600">يأتي مع جميع أدوات التركيب وتعليمات واضحة</p>
             </div>
           </div>
         </div>
@@ -2170,8 +2174,11 @@ export default function EcommerceLandingPage() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="text-3xl font-bold mb-4">BAGSTER</div>
-          <p className="text-gray-400 mb-6">حقائب عصرية لحياة متحركة</p>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Home className="w-8 h-8" />
+            <div className="text-3xl font-bold">الرف الذكي</div>
+          </div>
+          <p className="text-gray-400 mb-6">حلول تنظيم عصرية لمنزل أنيق</p>
           <div className="flex justify-center items-center gap-6 text-sm">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4" />
