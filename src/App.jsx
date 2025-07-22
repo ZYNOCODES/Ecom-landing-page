@@ -1646,6 +1646,18 @@ export default function EcommerceLandingPage() {
     return communeData.filter(commune => commune.wilaya_id === wilayaId);
   };
 
+  // Get commune name from ID
+  const getCommuneNameById = (communeId) => {
+    const commune = communeData.find(c => c.id === communeId);
+    return commune ? commune.ar_name : null;
+  };
+
+  // Get wilaya name from ID
+  const getWilayaNameById = (wilayaId) => {
+    const wilaya = wilayaData.find(w => w.id === wilayaId);
+    return wilaya ? wilaya.ar_name : null;
+  };
+
   // Load EmailJS script
   useEffect(() => {
     const script = document.createElement('script');
@@ -1718,6 +1730,9 @@ export default function EcommerceLandingPage() {
       const totalPrice = productPrice * orderData.quantity + deliveryPrice;
       const orderDate = new Date().toLocaleDateString('ar-DZ');
 
+      const wilaya = getWilayaNameById(orderData.wilaya);
+      const commune = getCommuneNameById(orderData.commune);
+
       const templateParams = {
         customer_name: orderData.fullName,
         customer_phone: orderData.phone,
@@ -1726,8 +1741,8 @@ export default function EcommerceLandingPage() {
         unit_price: productPrice.toLocaleString(),
         delivery_price: deliveryPrice === 0 ? 'مجاني' : `${deliveryPrice.toLocaleString()} دج`,
         total_price: totalPrice.toLocaleString(),
-        wilaya: orderData.wilaya,
-        commune: orderData.commune,
+        wilaya: wilaya,
+        commune: commune,
         order_date: orderDate,
         to_email: 'ourecombusiness26@gmail.com'
       };
